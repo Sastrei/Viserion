@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Teditor_Placement"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1046.311" Width="1347.99">
+        Title="Viserion .WEPN Editor" Height="1046.311" Width="1347.99">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="0,5,0,5" />
@@ -23,11 +23,14 @@
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed" CanExecute="OpenCommand_CanExecute"/>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" CanExecute="CloseCommand_CanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveCommand_Executed" CanExecute="SaveCommand_CanExecute"/>
+        <CommandBinding Command="ApplicationCommands.SaveAs" Executed="SaveAsCommand_Executed" CanExecute="SaveAsCommand_CanExecute"/>
     </Window.CommandBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Command="ApplicationCommands.Open"/>
+                <Separator />
                 <MenuItem Header="_Save" Click="MenuSave_Click" Command="ApplicationCommands.Save" />
                 <MenuItem Header="Save _As" Click="MenuSaveAs_Click" InputGestureText="Ctrl+Alt+S" Command="ApplicationCommands.SaveAs" />
                 <Separator />
@@ -93,7 +96,7 @@
                                 <TextBox x:Name="MaxDec"  Height="25" Width="50" HorizontalAlignment="Right" />
                                 <TextBox x:Name="SpeedMult"  Height="25" Width="50" HorizontalAlignment="Right"/>
                                 <TextBox x:Name="Skewer" Height="25" Width="50" HorizontalAlignment="Right"/>
-                                <TextBox x:Name="WFScript" Height="25" Width="50" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="WFScript" Height="25" Width="100" HorizontalAlignment="Right"/>
                             </StackPanel>
                         </StackPanel>
                         <Grid Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="2">

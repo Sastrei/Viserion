@@ -24,6 +24,7 @@ namespace Teditor_Placement
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool IsFileOpen;
         string path;
         string tmpPath = @"C:\Users\Sastr\Desktop\teditor_tmp\test.wepn";
 
@@ -505,28 +506,68 @@ namespace Teditor_Placement
             {
                 ContentDMF.Text = setDamageMultFactor[1].Trim(')');
             }
+            else if (setDamageMultFactor == null)
+            {
+                PnlDMF.Visibility = Visibility.Collapsed;
+                BtnRemDMF.Visibility = Visibility.Collapsed;
+            }
+
+
             if (setLifetimeMult != null)
             {
                 ContentLM.Text = setLifetimeMult[1].Trim(')');
             }
+            else if (setLifetimeMult == null)
+            {
+                PnlLM.Visibility = Visibility.Collapsed;
+                BtnRemLM.Visibility = Visibility.Collapsed;
+            }
+
             if (setFireMultFactor != null)
             {
                 ContentFMF.Text = setFireMultFactor[1].Trim(')');
             }
+            else if (setFireMultFactor == null)
+            {
+                PnlFMF.Visibility = Visibility.Collapsed;
+                BtnRemFMF.Visibility = Visibility.Collapsed;
+            }
+
+
             if (setRangeBoost != null)
             {
                 ContentRB.Text = setRangeBoost[1].Trim(')');
             }
+            else if (setRangeBoost == null)
+            {
+                PnlRB.Visibility = Visibility.Collapsed;
+                BtnRemRB.Visibility = Visibility.Collapsed;
+            }
+
+
             if (setFrustratedTimers != null)
             {
                 ContentFT_Min.Text = setFrustratedTimers[1];
                 ContentFT_Max.Text = setFrustratedTimers[2].Trim(')');
             }
+            else if (setFrustratedTimers == null)
+            {
+                PnlFT1.Visibility = Visibility.Collapsed;
+                PnlFT2.Visibility = Visibility.Collapsed;
+                BtnRemFT.Visibility = Visibility.Collapsed;
+            }
+
             if (setMiscValues != null)
             {
                 ContentMV_Recoil.Text = setMiscValues[1];
                 ContentMV_Delay.Text = setMiscValues[2].Trim(')');
             }
+            else if (setMiscValues == null)
+            {
+                PnlMV1.Visibility = Visibility.Collapsed;
+                BtnRemMV.Visibility = Visibility.Collapsed;
+            }
+
             if (setMissileKiller != null)
             {
                 MissileKillerEnabled = Convert.ToInt32(setMissileKiller[1].Trim(')', ';'));
@@ -535,6 +576,12 @@ namespace Teditor_Placement
                 else
                     ContentMK.IsChecked = true;
             }
+            else if (setMissileKiller == null)
+            {
+                PnlMK.Visibility = Visibility.Collapsed;
+                BtnRemMK.Visibility = Visibility.Collapsed;
+            }
+
             if (setBallistics != null)
             {
                 BallisticsEnabled = Convert.ToInt32(setBallistics[1]);
@@ -544,32 +591,74 @@ namespace Teditor_Placement
                     ContentBal_Enable.IsChecked = true;
                 ContentBal_Leading.Text = setBallistics[2].Trim(')');
             }
+            else if (setBallistics == null)
+            {
+                PnlBal1.Visibility = Visibility.Collapsed;
+                PnlBal2.Visibility = Visibility.Collapsed;
+
+                BtnRemBal.Visibility = Visibility.Collapsed;
+            }
+
             if (setRangeByStance != null)
             {
                 ContentRBS_Psv.Text = setRangeByStance[1];
                 ContentRBS_Neu.Text = setRangeByStance[2];
                 ContentRBS_Agg.Text = setRangeByStance[3].Trim(')');
             }
+            else if (setRangeByStance == null)
+            {
+                PnlRBS.Visibility = Visibility.Collapsed;
+                BtnRemRBS.Visibility = Visibility.Collapsed;
+            }
+
             if (setAccuracyFalloff != null)
             {
                 ContentAF_Val1.Text = setAccuracyFalloff[1];
                 ContentAF_Val2.Text = setAccuracyFalloff[2].Trim(')');
             }
+            else if (setAccuracyFalloff == null)
+            {
+                PnlAF1.Visibility = Visibility.Collapsed;
+                PnlAF2.Visibility = Visibility.Collapsed;
+
+                BtnRemAF.Visibility = Visibility.Collapsed;
+            }
+
             if (setDamageFalloff != null)
             {
                 ContentDF_Val1.Text = setDamageFalloff[1];
                 ContentDF_Val2.Text = setDamageFalloff[2].Trim(')');
             }
+            else if (setDamageFalloff == null)
+            {
+                PnlDF1.Visibility = Visibility.Collapsed;
+                PnlDF2.Visibility = Visibility.Collapsed;
+
+                BtnRemDF.Visibility = Visibility.Collapsed;
+            }
+
             if (setMagneticFieldPenetration != null)
             {
                 ContentMFP_Val1.Text = setMagneticFieldPenetration[1];
                 ContentMFP_Val2.Text = setMagneticFieldPenetration[2].Trim('{');
                 ContentMFP_Val3.Text = setMagneticFieldPenetration[3].Trim('}', ')');
             }
+            else if (setMagneticFieldPenetration == null)
+            {
+                PnlMFP.Visibility = Visibility.Collapsed;
+                BtnRemMFP.Visibility = Visibility.Collapsed;
+            }
+
             if (addAnimTurretSound != null)
             {
                 ContentATS.Text = addAnimTurretSound[1].Trim(')', '"');
             }
+            else if (addAnimTurretSound == null)
+            {
+                PnlATS.Visibility = Visibility.Collapsed;
+                BtnRemATS.Visibility = Visibility.Collapsed;
+            }
+
             if (setMissProperties != null)
             {
                 ContentMP_ConeHor.Text = setMissProperties[1];
@@ -579,6 +668,12 @@ namespace Teditor_Placement
                 ContentMP_Speed.Text = setMissProperties[5];
                 ContentMP_Life.Text = setMissProperties[6].Trim(')');
             }
+            else if (setMissProperties == null)
+            {
+                PnlMP.Visibility = Visibility.Collapsed;
+                BtnRemMP.Visibility = Visibility.Collapsed;
+            }
+
             if (setAngles != null)
             {
                 ContentAng_Cone.Text = setAngles[1];
@@ -587,26 +682,11 @@ namespace Teditor_Placement
                 ContentAng_MinDec.Text = setAngles[4];
                 ContentAng_MaxDec.Text = setAngles[5].Trim(')');
             }
-            //Needs to be redesigned to count array size
-            //if (setSpeedvsAccuracyAgainst != null)
-            //{
-            //    OverrideEnabled = Convert.ToInt32(setSpeedvsAccuracyAgainst[1]);
-            //    if (OverrideEnabled == 0)
-            //        ContentSAA_Override.IsChecked = false;
-            //    else
-            //        ContentSAA_Override.IsChecked = true;
-            //    ContentSAA_Speed1.Text = setSpeedvsAccuracyAgainst[2];
-            //    ContentSAA_Speed2.Text = setSpeedvsAccuracyAgainst[4];
-            //    ContentSAA_Speed3.Text = setSpeedvsAccuracyAgainst[6];
-            //    ContentSAA_Speed4.Text = setSpeedvsAccuracyAgainst[8];
-            //    ContentSAA_Acc1.Text = setSpeedvsAccuracyAgainst[3];
-            //    ContentSAA_Acc2.Text = setSpeedvsAccuracyAgainst[5];
-            //    ContentSAA_Acc3.Text = setSpeedvsAccuracyAgainst[7];
-            //    ContentSAA_Acc4.Text = setSpeedvsAccuracyAgainst[9];
-            //}
-
-            //ContentSAA_Speed1
-            //ContentSAA_Acc1
+            else if (setAngles == null)
+            {
+                PnlAng.Visibility = Visibility.Collapsed;
+                BtnRemAng.Visibility = Visibility.Collapsed;
+            }
 
             if (setSpeedvsAccuracyAgainst != null)
             {
@@ -710,6 +790,23 @@ namespace Teditor_Placement
                         break;
                 }
             }
+            else if (setSpeedvsAccuracyAgainst == null)
+            {
+                BtnAddSAA2.Visibility = Visibility.Visible;
+                PnlSAA0.Visibility = Visibility.Collapsed;
+                PnlSAA1.Visibility = Visibility.Collapsed;
+                PnlSAA2.Visibility = Visibility.Collapsed;
+                PnlSAA3.Visibility = Visibility.Collapsed;
+                PnlSAA4.Visibility = Visibility.Collapsed;
+                PnlSAA5.Visibility = Visibility.Collapsed;
+                PnlSAA6.Visibility = Visibility.Collapsed;
+                PnlSAA2_1.Visibility = Visibility.Collapsed;
+                PnlSAA3_1.Visibility = Visibility.Collapsed;
+                PnlSAA4_1.Visibility = Visibility.Collapsed;
+                PnlSAA5_1.Visibility = Visibility.Collapsed;
+                PnlSAA6_1.Visibility = Visibility.Collapsed;
+                BtnRemSAA.Visibility = Visibility.Collapsed;
+                }
 
             if (addWeaponResult1 != null)
             {
@@ -760,7 +857,16 @@ namespace Teditor_Placement
                 ContentWR1_Min.Text = addWeaponResult1[4];
                 ContentWR1_Max.Text = addWeaponResult1[5];
                 ContentWR1_Name.Text = addWeaponResult1[6].Trim(')', '"');
+                PnlWR1.Visibility = Visibility.Visible;
+                BtnAddWR1.Visibility = Visibility.Collapsed;
+                BtnRemWR1.Visibility = Visibility.Visible;
             }
+            else if (addWeaponResult1 == null)
+            {
+                PnlWR1.Visibility = Visibility.Collapsed;
+                BtnRemWR1.Visibility = Visibility.Collapsed;
+            }
+
 
             if (addWeaponResult2 != null)
             {
@@ -806,6 +912,14 @@ namespace Teditor_Placement
                 ContentWR2_Min.Text = addWeaponResult2[4];
                 ContentWR2_Max.Text = addWeaponResult2[5];
                 ContentWR2_Name.Text = addWeaponResult2[6].Trim(')', '"');
+                PnlWR2.Visibility = Visibility.Visible;
+                BtnAddWR2.Visibility = Visibility.Collapsed;
+                BtnRemWR2.Visibility = Visibility.Visible;
+            }
+            else if (addWeaponResult2 == null)
+            {
+                PnlWR2.Visibility = Visibility.Collapsed;
+                BtnRemWR2.Visibility = Visibility.Collapsed;
             }
 
             if (addWeaponResult3 != null)
@@ -852,6 +966,14 @@ namespace Teditor_Placement
                 ContentWR3_Min.Text = addWeaponResult3[4];
                 ContentWR3_Max.Text = addWeaponResult3[5];
                 ContentWR3_Name.Text = addWeaponResult3[6].Trim(')', '"');
+                PnlWR3.Visibility = Visibility.Visible;
+                BtnAddWR3.Visibility = Visibility.Collapsed;
+                BtnRemWR3.Visibility = Visibility.Visible;
+            }
+            else if (addWeaponResult3 == null)
+            {
+                PnlWR3.Visibility = Visibility.Collapsed;
+                BtnRemWR3.Visibility = Visibility.Collapsed;
             }
 
             if (addWeaponResult4 != null)
@@ -898,7 +1020,16 @@ namespace Teditor_Placement
                 ContentWR4_Min.Text = addWeaponResult4[4];
                 ContentWR4_Max.Text = addWeaponResult4[5];
                 ContentWR4_Name.Text = addWeaponResult4[6].Trim(')', '"');
+                PnlWR4.Visibility = Visibility.Visible;
+                BtnAddWR4.Visibility = Visibility.Collapsed;
+                BtnRemWR4.Visibility = Visibility.Visible;
             }
+            else if (addWeaponResult4 == null)
+            {
+                PnlWR4.Visibility = Visibility.Collapsed;
+                BtnRemWR4.Visibility = Visibility.Collapsed;
+            }
+
 
             if (addWeaponResult5 != null)
             {
@@ -944,7 +1075,16 @@ namespace Teditor_Placement
                 ContentWR5_Min.Text = addWeaponResult5[4];
                 ContentWR5_Max.Text = addWeaponResult5[5];
                 ContentWR5_Name.Text = addWeaponResult5[6].Trim(')', '"');
+                PnlWR5.Visibility = Visibility.Visible;
+                BtnAddWR5.Visibility = Visibility.Collapsed;
+                BtnRemWR5.Visibility = Visibility.Visible;
             }
+            else if (addWeaponResult5 == null)
+            {
+                PnlWR5.Visibility = Visibility.Collapsed;
+                BtnRemWR5.Visibility = Visibility.Collapsed;
+            }
+
 
             if (addWeaponResult6 != null)
             {
@@ -990,8 +1130,15 @@ namespace Teditor_Placement
                 ContentWR6_Min.Text = addWeaponResult6[4];
                 ContentWR6_Max.Text = addWeaponResult6[5];
                 ContentWR6_Name.Text = addWeaponResult6[6].Trim(')', '"');
+                PnlWR6.Visibility = Visibility.Visible;
+                BtnAddWR6.Visibility = Visibility.Collapsed;
+                BtnRemWR6.Visibility = Visibility.Visible;
             }
-
+            else if (addWeaponResult6 == null)
+            {
+                PnlWR6.Visibility = Visibility.Collapsed;
+                BtnRemWR6.Visibility = Visibility.Collapsed;
+            }
 
             if (setPenetration != null)
             {
@@ -1008,12 +1155,19 @@ namespace Teditor_Placement
             if (setAccuracy != null)
             {
                 int n = setAccuracy.Count();
-                for (int i = 2; i < (n - 1); i++)
+                if (n > 2)
                 {
-                    ContentAcc_List.AppendText(setAccuracy[i] + '\n');
+                    for (int i = 2; i < (n - 1); i++)
+                    {
+                        ContentAcc_List.AppendText(setAccuracy[i] + '\n');
+                    }
+                    ContentAcc_List.AppendText(setAccuracy[n - 1].Trim(')'));
+                    ContentAcc_Def.Text = setAccuracy[1];
                 }
-                ContentAcc_List.AppendText(setAccuracy[n - 1].Trim(')'));
-                ContentAcc_Def.Text = setAccuracy[1];
+                else if (n == 2)
+                {
+                    ContentAcc_Def.Text = setAccuracy[1].Trim(')');
+                }
             }
         }
 
@@ -1104,14 +1258,22 @@ namespace Teditor_Placement
 
             if (PnlAcc.Visibility == Visibility.Visible)
             {
-                StringBuilder sbAccuracy = new StringBuilder();
-                string[] arrAccuracy = ContentAcc_List.Text.Split('\n');
-                int n = arrAccuracy.Count();
-                for (int i = 0; i < (n - 1); i++)
-                    sbAccuracy.Append(arrAccuracy[i] + ',');
-                sbAccuracy.Append(arrAccuracy[n - 1]);
+                int x = setAccuracy.Count();
+                if (x > 2)
+                {
+                    StringBuilder sbAccuracy = new StringBuilder();
+                    string[] arrAccuracy = ContentAcc_List.Text.Split('\n');
+                    int n = arrAccuracy.Count();
+                    for (int i = 0; i < (n - 1); i++)
+                        sbAccuracy.Append(arrAccuracy[i] + ',');
+                    sbAccuracy.Append(arrAccuracy[n - 1]);
 
-                sbContent.AppendLine("setAccuracy" + "(" + ObjType.SelectedItem + "," + ContentAcc_Def.Text + "," + sbAccuracy + ");");
+                    sbContent.AppendLine("setAccuracy" + "(" + ObjType.SelectedItem + "," + ContentAcc_Def.Text + "," + sbAccuracy + ");");
+                }
+                else if (x == 2)
+                {
+                    sbContent.AppendLine("setAccuracy" + "(" + ObjType.SelectedItem + "," + ContentAcc_Def.Text + ");");
+                }
             }
 
             if (PnlAng.Visibility == Visibility.Visible)
@@ -1741,6 +1903,40 @@ namespace Teditor_Placement
             Environment.Exit(0);
         }
 
+        private void SaveAsCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (IsFileOpen == true)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+
+        private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (IsFileOpen == true)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+        }
+
+        private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("File saved.");
+        }
+        private void SaveAsCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("File saved.");
+        }
+
         private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -1748,7 +1944,7 @@ namespace Teditor_Placement
 
         private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Close Command Invoked");
+            MessageBox.Show("Exiting");
         }
 
         private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -1772,6 +1968,9 @@ namespace Teditor_Placement
 
                 ContentAcc_List.Text = String.Empty;
                 ContentPen_List.Text = String.Empty;
+
+                IsFileOpen = true;
+                this.Title = path;
 
                 ParseWepnFile();
                 DisplayContent();

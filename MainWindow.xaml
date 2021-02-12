@@ -1,0 +1,844 @@
+﻿<Window x:Class="Teditor_Placement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Teditor_Placement"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1046.311" Width="1347.99">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="15,10,0,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="MenuOpen_Click" InputGestureText="Ctrl+O" />
+                <MenuItem Header="_Save" Click="MenuSave_Click" InputGestureText="Ctrl+S" />
+                <MenuItem Header="_Save As" Click="MenuSaveAs_Click" InputGestureText="Ctrl+Alt+S" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="MenuExit_Click" InputGestureText="Alt+F4" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_View Wiki" Click="Wiki_Click"/>
+                <MenuItem Header="_About" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel x:Name="PnlRoot" Orientation="Horizontal">
+
+                <!--startWeaponConfig-->
+
+                <GroupBox x:Name="groupStartWeaponConfig">
+                    <GroupBox.Header>
+                        <TextBlock>
+                        <Span FontWeight="Bold">startWeaponConfig</Span>
+                        </TextBlock>
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <Label Height="25">Object Type</Label>
+                                <Label Height="25">Mount Type</Label>
+                                <Label Height="25">Projectile Type</Label>
+                                <Label Height="25">ActivationType</Label>
+                                <Label Height="25">Launch Direction</Label>
+                                <Label Height="25">Penetration</Label>
+                                <Label Height="25">Velocity</Label>
+                                <Label Height="25">Range</Label>
+                                <Label Height="25">Radius</Label>
+                                <Label Height="25">Lifetime</Label>
+                                <Label Height="25">Anticipation Time</Label>
+                                <Label Height="25">Max FX Spawned</Label>
+                                <Label Height="25">Shot Delay</Label>
+                                <Label Height="25">Burst Time</Label>
+                                <Label Height="25">Wait Time</Label>
+                                <Label Height="25">Max Azimuth Speed</Label>
+                                <Label Height="25">Max Declination Speed</Label>
+                                <Label Height="25">Speed Multiplier</Label>
+                                <Label Height="25">Skewer Threshold</Label>
+                                <Label Height="25">WeaponFire Script</Label>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <ComboBox x:Name="ObjType" Height="25" Width="100"></ComboBox>
+                                <ComboBox x:Name="MntType" Height="25"></ComboBox>
+                                <ComboBox x:Name="PrjType" Height="25"></ComboBox>
+                                <ComboBox x:Name="ActType" Height="25"></ComboBox>
+                                <ComboBox x:Name="LaunchDir" Height="25"></ComboBox>
+                                <ComboBox x:Name="Pen" Height="25"></ComboBox>
+                                <TextBox x:Name="Velocity" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Range" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Radius" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Lifetime" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Anticipation" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="MaxFX" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Delay" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Burst" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Wait" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="MaxAzi" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="MaxDec"  Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="SpeedMult"  Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="Skewer" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="WFScript" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <Grid Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0">Target Prediction</Label>
+                            <Label Grid.Column="0" Grid.Row="1">Check for Friendlies</Label>
+                            <Label Grid.Column="0" Grid.Row="2">Shoot at Secondaries</Label>
+                            <Label Grid.Column="0" Grid.Row="3">Scan for Enemies</Label>
+                            <Label Grid.Column="0" Grid.Row="4">Track Outside Range</Label>
+                            <Label Grid.Column="0" Grid.Row="5">Wait Until Code Red</Label>
+                            <CheckBox x:Name="TargetPrediction" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                            <CheckBox x:Name="CheckForFriendlies" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                            <CheckBox x:Name="ShootAtSecondaries" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                            <CheckBox x:Name="ScanForEnemies" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                            <CheckBox x:Name="TrackOutsideRange" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                            <CheckBox x:Name="WaitUntilCodeRed" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+
+                <!--Column 2-->
+
+                <StackPanel Orientation="Vertical">
+                    <GroupBox x:Name="GrpMK">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setMissileKiller</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlMK">
+                                <Label>Enabled</Label>
+                                <CheckBox x:Name="ContentMK" HorizontalAlignment="Right" VerticalContentAlignment="Center">
+                                    <CheckBox.ToolTip>
+                                        <ToolTip>If checked, weapon can shoot down missiles.</ToolTip>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddMK" Click="BtnAddMK_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemMK" Click="BtnRemMK_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpBal">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setBallistics</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlBal1">
+                                <Label>Enabled</Label>
+                                <CheckBox x:Name="ContentBal_Enable" HorizontalAlignment="Right" VerticalContentAlignment="Center" />
+                            </DockPanel>
+                            <DockPanel x:Name="PnlBal2">
+                                <Label>Leading</Label>
+                                <TextBox x:Name="ContentBal_Leading" Width="50" HorizontalAlignment="Right" />
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddBal" Click="BtnAddBal_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemBal" Click="BtnRemBal_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox x:Name="GrpLM">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setLifetimeMult</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlLM">
+                                <Label>Value</Label>
+                                <TextBox x:Name="ContentLM" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddLM" Click="BtnAddLM_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemLM" Click="BtnRemLM_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpFMF">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setFireMultFactor</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlFMF">
+                                <Label>Value</Label>
+                                <TextBox x:Name="ContentFMF" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddFMF" Click="BtnAddFMF_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemFMF" Click="BtnRemFMF_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpDMF">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setDamageMultFactor</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlDMF">
+                                <Label>Value</Label>
+                                <TextBox x:Name="ContentDMF" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddDMF" Click="BtnAddDMF_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemDMF" Click="BtnRemDMF_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpFT">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setFrustratedTimers</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlFT1">
+                                <Label>Min</Label>
+                                <TextBox x:Name="ContentFT_Min" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel x:Name="PnlFT2">
+                                <Label>Max</Label>
+                                <TextBox x:Name="ContentFT_Max" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddFT" Click="BtnAddFT_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemFT" Click="BtnRemFT_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpMV">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setMiscValues</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlMV1">
+                                <Label>Recoil</Label>
+                                <TextBox x:Name="ContentMV_Recoil" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel x:Name="PnlMV2">
+                                <Label>Delay</Label>
+                                <TextBox x:Name="ContentMV_Delay" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddMV" Click="BtnAddMV_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemMV" Click="BtnRemMV_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpAF">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setAccuracyFalloff</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlAF1">
+                                <Label>Value 1</Label>
+                                <TextBox x:Name="ContentAF_Val1" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel x:Name="PnlAF2">
+                                <Label>Value 2</Label>
+                                <TextBox x:Name="ContentAF_Val2" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddAF" Click="BtnAddAF_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemAF" Click="BtnRemAF_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="GrpDF">
+                        <GroupBox.Header>
+                            <TextBlock>
+                        <Span FontWeight="Bold">setDamageFalloff</Span>
+                            </TextBlock>
+                        </GroupBox.Header>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel x:Name="PnlDF1">
+                                <Label>Value 1</Label>
+                                <TextBox x:Name="ContentDF_Val1" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel x:Name="PnlDF2">
+                                <Label>Value 2</Label>
+                                <TextBox x:Name="ContentDF_Val2" Width="50" HorizontalAlignment="Right"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button x:Name="BtnAddDF" Click="BtnAddDF_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                <Button x:Name="BtnRemDF" Click="BtnRemDF_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+                <!--addWeaponResult-->
+
+                <StackPanel Orientation="Vertical">
+                    <DockPanel>
+                        <StackPanel Orientation="Vertical">
+                            <DockPanel>
+                                <GroupBox x:Name="GrpWR1">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR1">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR1_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR1_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR1_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR1_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR1_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR1_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR1" Click="BtnAddWR1_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR1" Click="BtnRemWR1_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox x:Name="GrpWR2">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR2">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR2_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR2_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR2_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR2_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR2_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR2_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR2" Click="BtnAddWR2_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR2" Click="BtnRemWR2_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox x:Name="GrpWR3">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR3">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR3_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR3_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR3_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR3_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR3_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR3_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR3" Click="BtnAddWR3_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR3" Click="BtnRemWR3_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <GroupBox x:Name="GrpWR4">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR4">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR4_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR4_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR4_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR4_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR4_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR4_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR4" Click="BtnAddWR4_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR4" Click="BtnRemWR4_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox x:Name="GrpWR5">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR5">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR5_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR5_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR5_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR5_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR5_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR5_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR5" Click="BtnAddWR5_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR5" Click="BtnRemWR5_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox x:Name="GrpWR6">
+                                    <GroupBox.Header>
+                                        <TextBlock>
+                                        <Span FontWeight="Bold">addWeaponResult</Span>
+                                        </TextBlock>
+                                    </GroupBox.Header>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal" x:Name="PnlWR6">
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Height="25">Condition</Label>
+                                                <Label Height="25">Effect</Label>
+                                                <Label Height="25">Target</Label>
+                                                <Label Height="25">Min</Label>
+                                                <Label Height="25">Max</Label>
+                                                <Label Height="25">Effect Name</Label>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Vertical">
+                                                <ComboBox x:Name="ContentWR6_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR6_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR6_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <TextBox x:Name="ContentWR6_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR6_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR6_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <DockPanel>
+                                            <Button x:Name="BtnAddWR6" Click="BtnAddWR6_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemWR6" Click="BtnRemWR6_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </DockPanel>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel>
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox x:Name="GrpRB">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                        <Span FontWeight="Bold">setRangeBoost</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlRB">
+                                        <Label>Value</Label>
+                                        <TextBox x:Name="ContentRB" Width="50" HorizontalAlignment="Right"></TextBox>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddRB" Click="BtnAddRB_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemRB" Click="BtnRemRB_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox x:Name="GrpRBS">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                    <Span FontWeight="Bold">setRangeByStance</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlRBS">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Height="25">Passive</Label>
+                                            <Label Height="25">Neutral</Label>
+                                            <Label Height="25">Aggressive</Label>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBox x:Name="ContentRBS_Psv" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <TextBox x:Name="ContentRBS_Neu" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <TextBox x:Name="ContentRBS_Agg" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddRBS" Click="BtnAddRBS_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemRBS" Click="BtnRemRBS_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <GroupBox x:Name="GrpMFP">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                    <Span FontWeight="Bold">setMagneticFieldPenetration</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlMFP">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Height="25">Value 1</Label>
+                                            <Label Height="25">Value 2</Label>
+                                            <Label Height="25">Value 3</Label>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBox x:Name="ContentMFP_Val1" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <TextBox x:Name="ContentMFP_Val2" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <TextBox x:Name="ContentMFP_Val3" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddMFP" Click="BtnAddMFP_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemMFP" Click="BtnRemMFP_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+
+                            </GroupBox>
+                        </StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <GroupBox Grid.Column="0" Grid.Row="0" x:Name="GrpAng">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                        <Span FontWeight="Bold">setAngles</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlAng">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Height="25">Firing Cone</Label>
+                                            <Label Height="25">Min Azimuth</Label>
+                                            <Label Height="25">Max Azimuth</Label>
+                                            <Label Height="25">Min Declination</Label>
+                                            <Label Height="25">Max Declination</Label>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBox x:Name="ContentAng_Cone" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentAng_MinAzi" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentAng_MaxAzi" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentAng_MinDec" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentAng_MaxDec" Height="25" Width="50" HorizontalAlignment="Right" />
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddAng" Click="BtnAddAng_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemAng" Click="BtnRemAng_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox Grid.Column="1" Grid.Row="0" x:Name="GrpMP">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                        <Span FontWeight="Bold">setMissProperties</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlMP">
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Height="25">Cone Horizontal</Label>
+                                            <Label Height="25">Cone Vertical</Label>
+                                            <Label Height="25">Damage Low</Label>
+                                            <Label Height="25">Damage High</Label>
+                                            <Label Height="25">Speed</Label>
+                                            <Label Height="25">Lifetime</Label>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBox x:Name="ContentMP_ConeHor" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentMP_ConeVer" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentMP_DmgLo" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentMP_DmgHi" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentMP_Speed" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="ContentMP_Life" Height="25" Width="50" HorizontalAlignment="Right" />
+                                        </StackPanel>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddMP" Click="BtnAddMP_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemMP" Click="BtnRemMP_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="GrpATS">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                        <Span FontWeight="Bold">addAnimTurretSound</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlATS">
+                                        <Label>Path</Label>
+                                        <TextBox x:Name="ContentATS" Width="300" HorizontalAlignment="Right"></TextBox>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddATS" Click="BtnAddATS_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemATS" Click="BtnRemATS_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                    </DockPanel>
+                </StackPanel>
+
+                <DockPanel>
+                    <DockPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <GroupBox Grid.Column="0" Grid.Row="0" x:Name="GrpSAA">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                    <Span FontWeight="Bold">setSpeedvsAccuracyAgainst</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <DockPanel x:Name="PnlSAA">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <DockPanel x:Name="PnlSAA0" Grid.Row="0" >
+                                            <Label>Override</Label>
+                                            <CheckBox x:Name="ContentSAA_Override" VerticalContentAlignment="Center" HorizontalAlignment="Right"></CheckBox>
+                                        </DockPanel>
+
+                                        <DockPanel x:Name="PnlSAA1" Grid.Row="1">
+                                            <Label x:Name="LblSpeed1" Height="25">Speed 1</Label>
+                                            <TextBox x:Name="ContentSAA_Speed1" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <Label x:Name="LblAcc1" Margin="10,0,0,0" Height="25">Accuracy 1</Label>
+                                            <TextBox x:Name="ContentSAA_Acc1" Height="25" Width="50" HorizontalAlignment="Right" />
+                                        </DockPanel>
+                                        <StackPanel Orientation="Vertical" Grid.Row="2">
+                                            <DockPanel x:Name="PnlSAA2">
+                                                <Label x:Name="LblSpeed2" Height="25">Speed 2</Label>
+                                                <TextBox x:Name="ContentSAA_Speed2" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <Label x:Name="LblAcc2" Margin="10,0,0,0" Height="25">Accuracy 2</Label>
+                                                <TextBox x:Name="ContentSAA_Acc2" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <DockPanel x:Name="PnlSAA2_1">
+                                                <Button x:Name="BtnAddSAA2" Click="BtnAddSAA2_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                                <Button x:Name="BtnRemSAA2" Click="BtnRemSAA2_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                            </DockPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical" Grid.Row="3">
+                                            <DockPanel x:Name="PnlSAA3" >
+                                                <Label x:Name="LblSpeed3" Height="25">Speed 3</Label>
+                                                <TextBox x:Name="ContentSAA_Speed3" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <Label x:Name="LblAcc3" Margin="10,0,0,0" Height="25">Accuracy 3</Label>
+                                                <TextBox x:Name="ContentSAA_Acc3" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <DockPanel x:Name="PnlSAA3_1">
+                                                <Button x:Name="BtnAddSAA3" Click="BtnAddSAA3_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                                <Button x:Name="BtnRemSAA3" Click="BtnRemSAA3_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                            </DockPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical" Grid.Row="4">
+                                            <DockPanel x:Name="PnlSAA4" >
+                                                <Label x:Name="LblSpeed4" Height="25">Speed 4</Label>
+                                                <TextBox x:Name="ContentSAA_Speed4" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <Label x:Name="LblAcc4" Margin="10,0,0,0" Height="25">Accuracy 4</Label>
+                                                <TextBox x:Name="ContentSAA_Acc4" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <DockPanel x:Name="PnlSAA4_1">
+                                                <Button x:Name="BtnAddSAA4" Click="BtnAddSAA4_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                                <Button x:Name="BtnRemSAA4" Click="BtnRemSAA4_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                            </DockPanel>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Grid.Row="5">
+                                            <DockPanel x:Name="PnlSAA5">
+                                                <Label x:Name="LblSpeed5" Height="25">Speed 5</Label>
+                                                <TextBox x:Name="ContentSAA_Speed5" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <Label x:Name="LblAcc5" Margin="10,0,0,0" Height="25">Accuracy 5</Label>
+                                                <TextBox x:Name="ContentSAA_Acc5" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <DockPanel x:Name="PnlSAA5_1">
+                                                <Button x:Name="BtnAddSAA5" Click="BtnAddSAA5_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                                <Button x:Name="BtnRemSAA5" Click="BtnRemSAA5_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                            </DockPanel>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical" Grid.Row="6" >
+                                            <DockPanel x:Name="PnlSAA6" >
+                                                <Label x:Name="LblSpeed6" Height="25">Speed 6</Label>
+                                                <TextBox x:Name="ContentSAA_Speed6" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <Label x:Name="LblAcc6" Margin="10,0,0,0" Height="25">Accuracy 6</Label>
+                                                <TextBox x:Name="ContentSAA_Acc6" Height="25" Width="50" HorizontalAlignment="Right" />
+                                            </DockPanel>
+                                            <DockPanel x:Name="PnlSAA6_1">
+                                                <Button x:Name="BtnAddSAA6" Click="BtnAddSAA6_Click" HorizontalAlignment="Right" Width="40">Add</Button>
+                                                <Button x:Name="BtnRemSAA6" Click="BtnRemSAA6_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                            </DockPanel>
+                                        </StackPanel>
+                                        <DockPanel x:Name="PnlSAA7" Grid.Row="7">
+                                            <Button x:Name="BtnAddSAA" Click="BtnAddSAA_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                            <Button x:Name="BtnRemSAA" Click="BtnRemSAA_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                        </DockPanel>
+                                    </Grid>
+                                </DockPanel>
+
+                            </GroupBox>
+                            <GroupBox Grid.Column="0" Grid.Row="1" x:Name="GrpPen" >
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                    <Span FontWeight="Bold">setPenetration</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlPen">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="250" />
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Column="0" Grid.Row="0">Field Penetration</Label>
+                                            <Label Grid.Column="0" Grid.Row="1">Default Penetration</Label>
+                                            <TextBox x:Name="ContentPen_Fld" Grid.Column="1" Grid.Row="0"></TextBox>
+                                            <TextBox x:Name="ContentPen_Def" Grid.Column="1" Grid.Row="1"></TextBox>
+                                            <TextBox x:Name="ContentPen_List" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Height="Auto" />
+                                        </Grid>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddPen" Click="BtnAddPen_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemPen" Click="BtnRemPen_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+
+                            </GroupBox>
+                            <GroupBox Grid.Column="0" Grid.Row="2" x:Name="GrpAcc">
+                                <GroupBox.Header>
+                                    <TextBlock>
+                                    <Span FontWeight="Bold">setAccuracy</Span>
+                                    </TextBlock>
+                                </GroupBox.Header>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel x:Name="PnlAcc">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="250" />
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Column="0" Grid.Row="0">Default Accuracy</Label>
+                                            <TextBox x:Name="ContentAcc_Def" Grid.Column="1" Grid.Row="0" ></TextBox>
+                                            <TextBox x:Name="ContentAcc_List" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" />
+                                        </Grid>
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <Button x:Name="BtnAddAcc" Click="BtnAddAcc_Click" HorizontalAlignment="Left" Width="40">Add</Button>
+                                        <Button x:Name="BtnRemAcc" Click="BtnRemAcc_Click" HorizontalAlignment="Right" Width="60">Remove</Button>
+                                    </DockPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                    </DockPanel>
+                </DockPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

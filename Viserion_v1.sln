@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viserion_v1", "Viserion_v1.csproj", "{543353CB-355D-4A56-83F7-CC2FFE76D2A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543353CB-355D-4A56-83F7-CC2FFE76D2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543353CB-355D-4A56-83F7-CC2FFE76D2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543353CB-355D-4A56-83F7-CC2FFE76D2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543353CB-355D-4A56-83F7-CC2FFE76D2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0CB84B4-24AD-4785-A513-31114A38F7DC}
+	EndGlobalSection
+EndGlobal

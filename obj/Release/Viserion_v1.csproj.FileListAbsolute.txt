@@ -1,0 +1,15 @@
+C:\Users\Sastr\source\repos\Viserion_v1\bin\Release\Viserion_v1.exe.config
+C:\Users\Sastr\source\repos\Viserion_v1\bin\Release\Viserion_v1.exe
+C:\Users\Sastr\source\repos\Viserion_v1\bin\Release\Viserion_v1.pdb
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\MainWindow.g.cs
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\App.g.cs
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1_MarkupCompile.cache
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1_MarkupCompile.lref
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\MainWindow.baml
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.g.resources
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.Properties.Resources.resources
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.csproj.GenerateResource.cache
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.csproj.CoreCompileInputs.cache
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.exe
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.pdb
+C:\Users\Sastr\source\repos\Viserion_v1\obj\Release\Viserion_v1.csprojAssemblyReference.cache

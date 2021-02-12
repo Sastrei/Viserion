@@ -31,7 +31,7 @@ namespace Teditor_Placement
         string[] content;
         string[] splitContent;
         string[] StartWeaponConfig;
-        readonly OpenFileDialog openFile;
+        //readonly OpenFileDialog openFile;
 
         string[] addWeaponResult1;
         string[] addWeaponResult2;
@@ -68,13 +68,6 @@ namespace Teditor_Placement
         int OverrideEnabled;
         public MainWindow()
         {
-            openFile = new OpenFileDialog()
-            {
-                FileName = "Select a file",
-                Filter = "WEPN files | *.wepn",
-                Title = "Open WEPN file"
-            };
-
             InitializeComponent();
         }
 
@@ -1235,34 +1228,35 @@ namespace Teditor_Placement
             string updatedContent = sbContent.ToString();
 
             //System.IO.File.WriteAllText(tmpPath, updatedContent);
-            System.IO.File.WriteAllText(path, updatedContent);
+                System.IO.File.WriteAllText(path, updatedContent);
         }
 
-        private void MenuOpen_Click(object sender, RoutedEventArgs e)
-        {
-            if (openFile.ShowDialog() == true)
-            {
-                path = openFile.FileName;
-                content = File.ReadAllLines(path);
-                joinedContent = string.Join("", content);
-                splitContent = joinedContent.Split(';');
-            }
+        //private void MenuOpen_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (openFile.ShowDialog() == true)
+        //    {
+        //        path = openFile.FileName;
+        //        content = File.ReadAllLines(path);
+        //        joinedContent = string.Join("", content);
+        //        splitContent = joinedContent.Split(';');
+        //    }
 
-            //foreach (Control controls in PnlRoot.Children)
-            //{
-            //    if (controls.GetType() == typeof(CheckBox))
-            //        ((CheckBox)controls).IsChecked = false;
-            //    if (controls.GetType() == typeof(TextBox))
-            //        ((TextBox)controls).Text = String.Empty;
-            //}
+        //    //foreach (Control controls in PnlRoot.Children)
+        //    //{
+        //    //    if (controls.GetType() == typeof(CheckBox))
+        //    //        ((CheckBox)controls).IsChecked = false;
+        //    //    if (controls.GetType() == typeof(TextBox))
+        //    //        ((TextBox)controls).Text = String.Empty;
+        //    //}
 
-            ContentAcc_List.Text = String.Empty;
-            ContentPen_List.Text = String.Empty;
+        //    ContentAcc_List.Text = String.Empty;
+        //    ContentPen_List.Text = String.Empty;
 
-            ParseWepnFile();
-            DisplayContent();
+        //    ParseWepnFile();
+        //    DisplayContent();
 
-        }
+        //}
+
         private void MenuSave_Click(object sender, RoutedEventArgs e)
         {
             SaveContent();
@@ -1735,14 +1729,53 @@ namespace Teditor_Placement
 
             if (saveAs.ShowDialog() == true)
             {
-                path = saveAs.FileName;
-                SaveContent();
+
+                    path = saveAs.FileName;
+                    SaveContent();
+
             }
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void CloseCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Close Command Invoked");
+        }
+
+        private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.FileName = "Select a file";
+            openFile.Filter = "WEPN files | *.wepn";
+            openFile.Title = "Open WEPN file";
+
+            if (openFile.ShowDialog() == true)
+            {
+                path = openFile.FileName;
+                content = File.ReadAllLines(path);
+                joinedContent = string.Join("", content);
+                splitContent = joinedContent.Split(';');
+
+                ContentAcc_List.Text = String.Empty;
+                ContentPen_List.Text = String.Empty;
+
+                ParseWepnFile();
+                DisplayContent();
+            }
         }
     }
 }

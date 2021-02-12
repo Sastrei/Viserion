@@ -20,14 +20,18 @@
             <Setter Property="Margin" Value="15,10,0,0"></Setter>
         </Style>
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="OpenCommand_Executed" CanExecute="OpenCommand_CanExecute"/>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" CanExecute="CloseCommand_CanExecute"/>
+    </Window.CommandBindings>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_Open" Click="MenuOpen_Click" InputGestureText="Ctrl+O" />
-                <MenuItem Header="_Save" Click="MenuSave_Click" InputGestureText="Ctrl+S" />
-                <MenuItem Header="_Save As" Click="MenuSaveAs_Click" InputGestureText="Ctrl+Alt+S" />
+                <MenuItem Header="_Open" Command="ApplicationCommands.Open"/>
+                <MenuItem Header="_Save" Click="MenuSave_Click" Command="ApplicationCommands.Save" />
+                <MenuItem Header="Save _As" Click="MenuSaveAs_Click" InputGestureText="Ctrl+Alt+S" Command="ApplicationCommands.SaveAs" />
                 <Separator />
-                <MenuItem Header="_Exit" Click="MenuExit_Click" InputGestureText="Alt+F4" />
+                <MenuItem Header="_Exit" Click="MenuExit_Click" InputGestureText="Alt+F4" Command="ApplicationCommands.Close" />
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Wiki" Click="Wiki_Click"/>
@@ -70,26 +74,26 @@
                                 <Label Height="25">WeaponFire Script</Label>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                                <ComboBox x:Name="ObjType" Height="25" Width="100"></ComboBox>
-                                <ComboBox x:Name="MntType" Height="25"></ComboBox>
-                                <ComboBox x:Name="PrjType" Height="25"></ComboBox>
-                                <ComboBox x:Name="ActType" Height="25"></ComboBox>
-                                <ComboBox x:Name="LaunchDir" Height="25"></ComboBox>
-                                <ComboBox x:Name="Pen" Height="25"></ComboBox>
-                                <TextBox x:Name="Velocity" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Range" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Radius" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Lifetime" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Anticipation" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="MaxFX" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Delay" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Burst" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Wait" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="MaxAzi" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="MaxDec"  Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="SpeedMult"  Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="Skewer" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                <TextBox x:Name="WFScript" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <ComboBox x:Name="ObjType" Height="25" Width="135" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="MntType" Height="25" Width="75" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="PrjType" Height="25" Width="75" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="ActType" Height="25" Width="75" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="LaunchDir" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="Pen" Height="25" Width="75" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Velocity" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Range" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Radius" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Lifetime" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Anticipation" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="MaxFX" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Delay" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Burst" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="Wait" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="MaxAzi" Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="MaxDec"  Height="25" Width="50" HorizontalAlignment="Right" />
+                                <TextBox x:Name="SpeedMult"  Height="25" Width="50" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="Skewer" Height="25" Width="50" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="WFScript" Height="25" Width="50" HorizontalAlignment="Right"/>
                             </StackPanel>
                         </StackPanel>
                         <Grid Grid.Column="0" Grid.Row="19" Grid.ColumnSpan="2">
@@ -269,7 +273,7 @@
                         <StackPanel Orientation="Vertical">
                             <DockPanel x:Name="PnlAF1">
                                 <Label>Value 1</Label>
-                                <TextBox x:Name="ContentAF_Val1" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="ContentAF_Val1" Width="80" HorizontalAlignment="Right"></TextBox>
                             </DockPanel>
                             <DockPanel x:Name="PnlAF2">
                                 <Label>Value 2</Label>
@@ -290,7 +294,7 @@
                         <StackPanel Orientation="Vertical">
                             <DockPanel x:Name="PnlDF1">
                                 <Label>Value 1</Label>
-                                <TextBox x:Name="ContentDF_Val1" Width="50" HorizontalAlignment="Right"></TextBox>
+                                <TextBox x:Name="ContentDF_Val1" Width="80" HorizontalAlignment="Right"></TextBox>
                             </DockPanel>
                             <DockPanel x:Name="PnlDF2">
                                 <Label>Value 2</Label>
@@ -327,12 +331,12 @@
                                                 <Label Height="25">Effect Name</Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
-                                                <ComboBox x:Name="ContentWR1_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR1_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR1_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <TextBox x:Name="ContentWR1_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR1_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR1_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <ComboBox x:Name="ContentWR1_Condition" Height="25" Width="75" HorizontalAlignment="Right" />
+                                                <ComboBox x:Name="ContentWR1_Effect" Height="25" Width="120" HorizontalAlignment="Right" />
+                                                <ComboBox x:Name="ContentWR1_Target" Height="25" Width="75" HorizontalAlignment="Right" />
+                                                <TextBox x:Name="ContentWR1_Min" Height="25" Width="50" HorizontalAlignment="Right" />
+                                                <TextBox x:Name="ContentWR1_Max" Height="25" Width="50" HorizontalAlignment="Right" />
+                                                <TextBox x:Name="ContentWR1_Name" Height="25" Width="120" HorizontalAlignment="Right" />
                                             </StackPanel>
                                         </StackPanel>
                                         <DockPanel>
@@ -561,7 +565,7 @@
                                         </StackPanel>
                                         <StackPanel Orientation="Vertical">
                                             <TextBox x:Name="ContentMFP_Val1" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                            <TextBox x:Name="ContentMFP_Val2" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                            <TextBox x:Name="ContentMFP_Val2" Height="25" Width="100" HorizontalAlignment="Right"></TextBox>
                                             <TextBox x:Name="ContentMFP_Val3" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
                                         </StackPanel>
                                     </DockPanel>

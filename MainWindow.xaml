@@ -78,8 +78,8 @@
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <ComboBox x:Name="ObjType" Height="25" Width="135" HorizontalAlignment="Right" />
-                                <ComboBox x:Name="MntType" Height="25" Width="75" HorizontalAlignment="Right" />
-                                <ComboBox x:Name="PrjType" Height="25" Width="75" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="MntType" Height="25" Width="135" HorizontalAlignment="Right" />
+                                <ComboBox x:Name="PrjType" Height="25" Width="135" HorizontalAlignment="Right" />
                                 <ComboBox x:Name="ActType" Height="25" Width="75" HorizontalAlignment="Right" />
                                 <ComboBox x:Name="LaunchDir" Height="25" Width="50" HorizontalAlignment="Right" />
                                 <ComboBox x:Name="Pen" Height="25" Width="75" HorizontalAlignment="Right" />
@@ -365,12 +365,12 @@
                                                 <Label Height="25">Effect Name</Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
-                                                <ComboBox x:Name="ContentWR2_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR2_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR2_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR2_Condition" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR2_Effect" Height="25" Width="120" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR2_Target" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
                                                 <TextBox x:Name="ContentWR2_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
                                                 <TextBox x:Name="ContentWR2_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR2_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR2_Name" Height="25" Width="120" HorizontalAlignment="Right"></TextBox>
                                             </StackPanel>
                                         </StackPanel>
                                         <DockPanel>
@@ -396,12 +396,12 @@
                                                 <Label Height="25">Effect Name</Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
-                                                <ComboBox x:Name="ContentWR3_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR3_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR3_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR3_Condition" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR3_Effect" Height="25" Width="125" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR3_Target" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
                                                 <TextBox x:Name="ContentWR3_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
                                                 <TextBox x:Name="ContentWR3_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR3_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR3_Name" Height="25" Width="120" HorizontalAlignment="Right"></TextBox>
                                             </StackPanel>
                                         </StackPanel>
                                         <DockPanel>
@@ -429,12 +429,12 @@
                                                 <Label Height="25">Effect Name</Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
-                                                <ComboBox x:Name="ContentWR4_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR4_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR4_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR4_Condition" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR4_Effect" Height="25" Width="125" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR4_Target" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
                                                 <TextBox x:Name="ContentWR4_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
                                                 <TextBox x:Name="ContentWR4_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR4_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR4_Name" Height="25" Width="120" HorizontalAlignment="Right"></TextBox>
                                             </StackPanel>
                                         </StackPanel>
                                         <DockPanel>
@@ -460,12 +460,12 @@
                                                 <Label Height="25">Effect Name</Label>
                                             </StackPanel>
                                             <StackPanel Orientation="Vertical">
-                                                <ComboBox x:Name="ContentWR5_Condition" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR5_Effect" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
-                                                <ComboBox x:Name="ContentWR5_Target" Height="25" Width="100" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR5_Condition" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR5_Effect" Height="25" Width="125" HorizontalAlignment="Right"></ComboBox>
+                                                <ComboBox x:Name="ContentWR5_Target" Height="25" Width="75" HorizontalAlignment="Right"></ComboBox>
                                                 <TextBox x:Name="ContentWR5_Min" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
                                                 <TextBox x:Name="ContentWR5_Max" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
-                                                <TextBox x:Name="ContentWR5_Name" Height="25" Width="50" HorizontalAlignment="Right"></TextBox>
+                                                <TextBox x:Name="ContentWR5_Name" Height="25" Width="120" HorizontalAlignment="Right"></TextBox>
                                             </StackPanel>
                                         </StackPanel>
                                         <DockPanel>
